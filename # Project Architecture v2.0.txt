@@ -1,0 +1,465 @@
+# Project Architecture v2.0
+## Simple Agency Tool
+
+---
+
+# Purpose
+
+Projects are the primary workspace inside Simple Agency Tool.
+
+Every piece of work performed for a client is represented as an independent project.
+
+Examples:
+
+- Website Development
+- Monthly Social Media
+- SEO
+- Branding
+- Product Photography
+- Video Production
+- Google Ads
+- Marketing Campaign
+
+A client may own unlimited projects.
+
+Each project operates independently.
+
+---
+
+# Design Philosophy
+
+Projects should remain lightweight.
+
+The interface should only display tools that are actually required for the selected project.
+
+The application should never overwhelm users with features they don't need.
+
+Additional functionality should be enabled only when necessary.
+
+---
+
+# Data Structure
+
+```
+Workspace
+│
+├── Clients
+│      │
+│      ├── Client A
+│      │      │
+│      │      ├── Website Project
+│      │      ├── August Social Media
+│      │      ├── SEO
+│      │      └── Branding
+│      │
+│      └── Client B
+│             ├── Mobile App
+│             └── Photography
+│
+└── Users
+```
+
+Projects are independent workspaces.
+
+---
+
+# Project Creation
+
+Creating a project should remain extremely simple.
+
+Required fields
+
+- Project Name
+- Client
+- Description
+- Priority
+- Start Date
+- Due Date
+- Google Drive Folder
+
+Optional
+
+☐ Enable Content Planner
+
+---
+
+# Why a Checkbox?
+
+Content planning is only required for marketing projects.
+
+Website projects
+
+Branding
+
+Photography
+
+Video Editing
+
+Consulting
+
+Research
+
+do not always require content scheduling.
+
+Instead of forcing every project to include unnecessary features, Content Planner is enabled only when required.
+
+This keeps the interface clean.
+
+---
+
+# Default Project Layout
+
+Projects without Content Planner
+
+```
+Overview
+
+Task Board
+
+Task List
+
+Files
+
+Activity
+```
+
+---
+
+Projects with Content Planner
+
+```
+Overview
+
+Task Board
+
+Task List
+
+Content
+
+Files
+
+Activity
+```
+
+The Content tab only appears when Content Planner is enabled.
+
+---
+
+# Content Planner
+
+The Content Planner is **not** a social media management platform.
+
+It is simply a planning tool.
+
+Purpose
+
+Allow agencies to schedule future content.
+
+Examples
+
+Instagram Posts
+
+Instagram Reels
+
+Facebook Posts
+
+Stories
+
+LinkedIn Posts
+
+YouTube Videos
+
+Blogs
+
+Emails
+
+The planner exists only to answer one question:
+
+"What content needs to be published and when?"
+
+---
+
+# Content Planner Views
+
+Version 1 contains only two views.
+
+## Calendar View
+
+Monthly calendar.
+
+Each day displays scheduled content.
+
+---
+
+## List View
+
+Simple table.
+
+Columns
+
+- Date
+- Title
+- Platform
+- Content Type
+- Assigned To
+- Status
+
+---
+
+# Content Item
+
+Each scheduled content contains
+
+Title
+
+Platform
+
+Content Type
+
+Scheduled Date
+
+Assigned Employee
+
+Caption
+
+Google Drive Link
+
+Status
+
+Notes
+
+---
+
+# Supported Platforms
+
+Instagram
+
+Facebook
+
+LinkedIn
+
+YouTube
+
+TikTok
+
+X (Twitter)
+
+Website Blog
+
+Email
+
+Custom
+
+---
+
+# Content Types
+
+Post
+
+Carousel
+
+Story
+
+Reel
+
+Video
+
+Short
+
+Blog
+
+Newsletter
+
+Advertisement
+
+Custom
+
+---
+
+# Content Status
+
+Draft
+
+Writing
+
+Design
+
+Review
+
+Approved
+
+Scheduled
+
+Published
+
+Cancelled
+
+---
+
+# Content Planner Scope
+
+Version 1 intentionally excludes
+
+❌ Social media publishing
+
+❌ API integrations
+
+❌ Analytics
+
+❌ Comments
+
+❌ Approval workflows
+
+❌ AI caption generation
+
+❌ Performance reports
+
+❌ Auto-posting
+
+The Content Planner is only a planning calendar.
+
+---
+
+# Relationship with Tasks
+
+Content Planner does not replace Tasks.
+
+Example
+
+```
+Instagram Reel
+
+↓
+
+Tasks
+
+Write Script
+
+↓
+
+Record Video
+
+↓
+
+Edit Video
+
+↓
+
+Design Thumbnail
+
+↓
+
+Review
+
+↓
+
+Publish
+```
+
+Tasks track production.
+
+Content Planner tracks publication.
+
+These are different concepts.
+
+---
+
+# Relationship with Calendar
+
+Global Calendar
+
+Purpose
+
+Project deadlines
+
+Meetings
+
+Task due dates
+
+Milestones
+
+Content Planner
+
+Purpose
+
+Publishing schedule
+
+The two calendars must remain separate.
+
+---
+
+# Dashboard Integration
+
+Projects with Content Planner contribute to a new dashboard widget.
+
+Example
+
+Today's Content
+
+3
+
+Pending Approval
+
+2
+
+Publishing This Week
+
+11
+
+This widget only appears if Content Planner projects exist.
+
+---
+
+# User Experience Principles
+
+The feature should remain intentionally lightweight.
+
+Rules
+
+Do not become another ClickUp.
+
+Do not become another Hootsuite.
+
+Do not become another Buffer.
+
+Keep the workflow focused.
+
+Every content item should be creatable in under one minute.
+
+---
+
+# Future Expansion
+
+Future versions may include
+
+- Client approval
+- Social media API integration
+- Auto publishing
+- Analytics
+- AI caption suggestions
+- Hashtag suggestions
+- Performance reports
+- Campaign planning
+- Content templates
+
+None of these should affect Version 1.
+
+---
+
+# Design Principles
+
+Projects are the primary workspace.
+
+Clients own projects.
+
+Content Planner is an optional project capability.
+
+The global Calendar remains dedicated to operational scheduling.
+
+The Content tab should only appear when enabled.
+
+Simple workflows are preferred over feature-rich workflows.
+
+Every feature must justify its complexity.
+
+The application should remain calm, minimal, and easy to learn.

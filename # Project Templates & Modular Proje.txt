@@ -1,0 +1,869 @@
+# Project Templates & Modular Project Architecture
+
+**Document Version:** 1.0
+
+---
+
+# Purpose
+
+Projects are the core entity of the Simple Agency Tool.
+
+A single client may have multiple ongoing projects at the same time. Each project may require different workflows, modules, team members, deliverables, and planning tools.
+
+Instead of enabling features manually for every project, the application uses **Project Templates**.
+
+A Project Template automatically configures:
+
+- Project Type
+- Available Modules
+- Default Workflow
+- Suggested Task Lists
+- Default Statuses
+- Recommended Views
+
+This keeps project creation simple, consistent, and scalable.
+
+---
+
+# Data Hierarchy
+
+```
+Client
+    ├── Project 1
+    ├── Project 2
+    ├── Project 3
+    └── Project N
+```
+
+Example
+
+```
+Cafe Elam
+
+├── Website Redesign
+├── August Social Media
+├── SEO Optimization
+├── Google Ads Campaign
+└── Onam Campaign
+```
+
+Each project is completely independent.
+
+Projects have:
+
+- Own Tasks
+- Own Files
+- Own Team
+- Own Calendar
+- Own Activity
+- Own Notes
+- Own Modules
+
+---
+
+# Project Creation
+
+When creating a new project, the user selects a Project Template.
+
+```
+Create Project
+
+Client
+
+Project Name
+
+Project Template
+```
+
+Available Templates
+
+- Website Development
+- Social Media Management
+- SEO
+- Performance Marketing
+- Branding
+- Photography
+- Video Production
+- Graphic Design
+- Content Writing
+- Email Marketing
+- Marketing Campaign
+- UI/UX Design
+- Mobile App Development
+- E-commerce Development
+- Maintenance & Support
+- Consulting
+- Research
+- Custom
+
+---
+
+# Why Templates?
+
+Templates automatically configure the project.
+
+Benefits
+
+- Faster project creation
+- Consistent workflows
+- Reduced setup errors
+- Easier onboarding
+- Standardized delivery
+
+---
+
+# Modules
+
+Every project is made from modules.
+
+Modules are enabled automatically based on the selected template.
+
+Available modules:
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Team
+- Notes
+- Activity
+- Time Tracking (Future)
+- Content Planner
+- Client Approval (Future)
+- Analytics (Future)
+
+Projects only display modules they actually use.
+
+---
+
+# Template Configuration
+
+## Website Development
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Team
+- Notes
+- Activity
+
+Suggested Workflow
+
+Planning
+
+↓
+
+Wireframing
+
+↓
+
+Design
+
+↓
+
+Development
+
+↓
+
+Testing
+
+↓
+
+Deployment
+
+↓
+
+Maintenance
+
+---
+
+## Social Media Management
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Team
+- Notes
+- Activity
+- Content Planner
+
+Suggested Workflow
+
+Strategy
+
+↓
+
+Content Writing
+
+↓
+
+Design
+
+↓
+
+Internal Review
+
+↓
+
+Client Approval
+
+↓
+
+Scheduled
+
+↓
+
+Published
+
+---
+
+## SEO
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Notes
+- Activity
+
+Workflow
+
+Research
+
+↓
+
+Audit
+
+↓
+
+Implementation
+
+↓
+
+Monitoring
+
+↓
+
+Reporting
+
+---
+
+## Performance Marketing
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Notes
+- Activity
+
+Workflow
+
+Research
+
+↓
+
+Campaign Setup
+
+↓
+
+Launch
+
+↓
+
+Optimization
+
+↓
+
+Reporting
+
+---
+
+## Branding
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Notes
+- Activity
+
+Workflow
+
+Discovery
+
+↓
+
+Research
+
+↓
+
+Concept
+
+↓
+
+Design
+
+↓
+
+Presentation
+
+↓
+
+Revision
+
+↓
+
+Final Delivery
+
+---
+
+## Photography
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Notes
+- Activity
+
+Workflow
+
+Planning
+
+↓
+
+Shoot
+
+↓
+
+Selection
+
+↓
+
+Editing
+
+↓
+
+Delivery
+
+---
+
+## Video Production
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Notes
+- Activity
+
+Workflow
+
+Planning
+
+↓
+
+Script
+
+↓
+
+Production
+
+↓
+
+Editing
+
+↓
+
+Review
+
+↓
+
+Delivery
+
+---
+
+## Graphic Design
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Notes
+- Activity
+
+Workflow
+
+Brief
+
+↓
+
+Concept
+
+↓
+
+Design
+
+↓
+
+Review
+
+↓
+
+Final Delivery
+
+---
+
+## Content Writing
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Notes
+- Activity
+
+Workflow
+
+Research
+
+↓
+
+Outline
+
+↓
+
+Writing
+
+↓
+
+Editing
+
+↓
+
+Approval
+
+↓
+
+Publishing
+
+---
+
+## Email Marketing
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Notes
+- Activity
+
+Workflow
+
+Planning
+
+↓
+
+Copywriting
+
+↓
+
+Design
+
+↓
+
+Approval
+
+↓
+
+Schedule
+
+↓
+
+Reporting
+
+---
+
+## Marketing Campaign
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Notes
+- Activity
+- Content Planner
+
+Workflow
+
+Planning
+
+↓
+
+Creative
+
+↓
+
+Approval
+
+↓
+
+Launch
+
+↓
+
+Optimization
+
+↓
+
+Reporting
+
+---
+
+## UI/UX Design
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Notes
+- Activity
+
+Workflow
+
+Research
+
+↓
+
+Wireframes
+
+↓
+
+UI Design
+
+↓
+
+Prototype
+
+↓
+
+Testing
+
+↓
+
+Handoff
+
+---
+
+## Mobile App Development
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Team
+- Activity
+
+Workflow
+
+Planning
+
+↓
+
+Design
+
+↓
+
+Development
+
+↓
+
+Testing
+
+↓
+
+Release
+
+---
+
+## E-commerce Development
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+-Team
+-Activity
+
+Workflow
+
+Planning
+
+↓
+
+Design
+
+↓
+
+Development
+
+↓
+
+Product Setup
+
+↓
+
+Testing
+
+↓
+
+Launch
+
+---
+
+## Maintenance & Support
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Calendar
+- Activity
+
+Workflow
+
+Request
+
+↓
+
+Investigation
+
+↓
+
+Fix
+
+↓
+
+Testing
+
+↓
+
+Closed
+
+---
+
+## Consulting
+
+Modules
+
+- Overview
+- Notes
+- Calendar
+- Activity
+
+Workflow
+
+Meeting
+
+↓
+
+Analysis
+
+↓
+
+Recommendations
+
+↓
+
+Follow-up
+
+---
+
+## Research
+
+Modules
+
+- Overview
+- Tasks
+- Files
+- Notes
+- Activity
+
+Workflow
+
+Discovery
+
+↓
+
+Research
+
+↓
+
+Analysis
+
+↓
+
+Report
+
+---
+
+## Custom
+
+No default configuration.
+
+The project creator can manually choose:
+
+- Modules
+- Workflow
+- Statuses
+
+Custom exists for future flexibility.
+
+---
+
+# Content Planner
+
+Only projects that include the Content Planner module appear inside the global Content Planner.
+
+Examples
+
+- Social Media Management
+- Marketing Campaign
+
+Website projects do not appear.
+
+---
+
+# Global Content Planner
+
+Sidebar
+
+```
+Content Planner
+```
+
+Purpose
+
+Shows all content across every project.
+
+Filter by:
+
+- Client
+- Project
+- Month
+- Team Member
+- Platform
+- Status
+
+Views
+
+- Calendar
+- List
+- Kanban
+
+---
+
+# Monthly Projects
+
+Recurring social media work should be separated by month.
+
+Example
+
+```
+Cafe Elam
+
+Social Media
+
+2026
+
+├── July
+├── August
+├── September
+├── October
+```
+
+Each month is an independent project.
+
+Benefits
+
+- Easier reporting
+- Cleaner files
+- Better history
+- Independent approvals
+
+---
+
+# Duplicate Project
+
+The application should support:
+
+"Create Next Month"
+
+Automatically duplicates:
+
+- Tasks
+- Workflow
+- Content Planner structure
+- Team assignments
+
+Does NOT duplicate:
+
+- Files
+- Comments
+- Activity Log
+- Published content
+
+---
+
+# Future Expansion
+
+Future modules may include:
+
+- Invoicing
+- Client Approval Portal
+- Time Tracking
+- Resource Planning
+- Budget Tracking
+- Analytics
+- AI Assistant
+
+These should integrate into the same modular project architecture without changing the core data model.
+
+---
+
+# Design Principles
+
+- Projects are independent workspaces.
+- Clients can own unlimited projects.
+- Templates reduce repetitive setup.
+- Modules keep the interface clean by only showing relevant tools.
+- Content Planner is a module, not a standalone project type.
+- The architecture should be extensible without requiring database redesign.
