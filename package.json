@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "oxlint",
+    "lint": "tsc --noEmit",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -35,13 +35,10 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@emnapi/core": "^1.11.3",
-    "@emnapi/runtime": "^1.11.3",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
-    "oxlint": "^1.71.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1",
     "vite-plugin-pwa": "^1.3.0"
