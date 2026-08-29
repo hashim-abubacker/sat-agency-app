@@ -11,7 +11,7 @@ import {
 } from './mockData'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 
-const LOCAL_STORAGE_KEY = 'SAT_AGENCY_STATE_V3'
+const LOCAL_STORAGE_KEY = 'SAT_AGENCY_STATE_V4'
 const BROADCAST_CHANNEL_NAME = 'SAT_AGENCY_SYNC_CHANNEL'
 
 interface AgencyState {
@@ -42,28 +42,41 @@ class Store {
     if (saved) {
       try {
         const parsed = JSON.parse(saved)
-        const hasLegacyUsers = (parsed.users || []).some((u: User) => u.email === 'owner@agency.com' || u.full_name === 'Elena Rostova')
+        const hasLegacyData =
+          (parsed.users || []).some(
+            (u: User) =>
+              u.email === 'owner@agency.com' ||
+              u.full_name === 'Elena Rostova' ||
+              u.email?.includes('@eyb.digital') ||
+              u.email === 'contact@hashim.in'
+          ) ||
+          (parsed.clients || []).some(
+            (c: Client) => c.company_name === 'Cafe Elam' || c.company_name === 'Nexus Tech Solutions'
+          )
 
-        let usersList: User[] = hasLegacyUsers ? INITIAL_USERS : (parsed.users || INITIAL_USERS)
-        
-        // Ensure all default team & demo accounts are present in usersList
-        const existingEmails = new Set(usersList.map((u) => u.email.toLowerCase()))
-        INITIAL_USERS.forEach((initUser) => {
-          if (!existingEmails.has(initUser.email.toLowerCase())) {
-            usersList.push(initUser)
+        if (hasLegacyData) {
+          this.state = this.getInitialState()
+          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.state))
+        } else {
+          let usersList: User[] = parsed.users || INITIAL_USERS
+          const existingEmails = new Set(usersList.map((u) => u.email.toLowerCase()))
+          INITIAL_USERS.forEach((initUser) => {
+            if (!existingEmails.has(initUser.email.toLowerCase())) {
+              usersList.push(initUser)
+            }
+          })
+
+          this.state = {
+            ...this.getInitialState(),
+            ...parsed,
+            users: usersList,
+            currentUser: parsed.currentUser !== undefined ? parsed.currentUser : null,
+            contentItems: parsed.contentItems || this.getInitialState().contentItems,
+            settings: {
+              ...this.getInitialState().settings,
+              ...(parsed.settings || {}),
+            },
           }
-        })
-
-        this.state = {
-          ...this.getInitialState(),
-          ...parsed,
-          users: usersList,
-          currentUser: parsed.currentUser !== undefined ? parsed.currentUser : null,
-          contentItems: parsed.contentItems || this.getInitialState().contentItems,
-          settings: {
-            ...this.getInitialState().settings,
-            ...(parsed.settings || {}),
-          },
         }
       } catch {
         this.state = this.getInitialState()
@@ -172,9 +185,9 @@ class Store {
       reminders: INITIAL_REMINDERS,
       activityLogs: INITIAL_ACTIVITY_LOGS,
       settings: {
-        agency_name: 'Elevate Your Brand (EYB) Agency',
+        agency_name: 'EMAC Agency',
         default_currency: 'INR',
-        drive_root_url: 'https://drive.google.com/drive/folders/sample-root',
+        drive_root_url: 'https://drive.google.com/drive/folders/emac-agency-root',
       },
     }
   }

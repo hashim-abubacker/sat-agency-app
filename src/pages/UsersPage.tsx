@@ -218,7 +218,7 @@ export function UsersPage() {
       >
         <form onSubmit={handleCreateUser} className="space-y-4">
           <Input label="Full Name" value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="e.g. Alex Johnson" required />
-          <Input label="Email Address" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="e.g. alex@eyb.digital" required />
+          <Input label="Email Address" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="e.g. member@emac.one" required />
           <div>
             <label className="block text-xs font-semibold text-[#111827] mb-1">Role Level</label>
             <select
@@ -233,7 +233,7 @@ export function UsersPage() {
             </select>
           </div>
           <div className="p-3 bg-indigo-50 border border-indigo-100 rounded-lg text-xs text-indigo-700">
-            Initial password will be defaulted to: <strong className="font-mono">EYB2026#digital</strong>.
+            Initial password will be defaulted to: <strong className="font-mono">EMAC2026#agency</strong>.
           </div>
           <div className="flex justify-end gap-2 pt-2 border-t border-[#E5E7EB]">
             <Button type="button" variant="outline" onClick={() => setIsAddModalOpen(false)}>
