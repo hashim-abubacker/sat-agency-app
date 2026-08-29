@@ -446,7 +446,34 @@ class Store {
   }
 
   public loginUser(email: string): User | null {
-    const user = this.state.users.find((u) => u.email.toLowerCase() === email.toLowerCase())
+    const cleanEmail = (email || '').trim().toLowerCase()
+    if (!cleanEmail) return null
+
+    // 1. Search in current state users
+    let user = (this.state.users || []).find(
+      (u) =>
+        u.email.toLowerCase() === cleanEmail ||
+        u.email.toLowerCase().split('@')[0] === cleanEmail ||
+        u.full_name.toLowerCase() === cleanEmail
+    )
+
+    // 2. Fallback to INITIAL_USERS if state users were out of sync
+    if (!user) {
+      user = INITIAL_USERS.find(
+        (u) =>
+          u.email.toLowerCase() === cleanEmail ||
+          u.email.toLowerCase().split('@')[0] === cleanEmail ||
+          u.full_name.toLowerCase().includes(cleanEmail)
+      )
+      if (user) {
+        // Ensure user is added into active state users
+        const exists = this.state.users.some((u) => u.id === user!.id || u.email.toLowerCase() === user!.email.toLowerCase())
+        if (!exists) {
+          this.state.users = [...this.state.users, user]
+        }
+      }
+    }
+
     if (user) {
       this.state.currentUser = user
       this.save()
