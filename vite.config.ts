@@ -13,9 +13,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'Simple Agency Tool',
-        short_name: 'SAT Agency',
-        description: 'Operations, Client Management, Quotations, and Project Tracking Workspace.',
+        name: 'EMAC ONE - Agency Workspace',
+        short_name: 'EMAC ONE',
+        description: 'EMAC ONE - Operations, Client Management, Quotations, and Project Tracking Workspace.',
         theme_color: '#111827',
         background_color: '#F9FAFB',
         display: 'standalone',

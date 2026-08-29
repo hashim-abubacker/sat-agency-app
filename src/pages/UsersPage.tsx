@@ -29,7 +29,7 @@ export function UsersPage() {
   const [editStatus, setEditStatus] = useState<'active' | 'inactive'>('active')
 
   // Password Reset Form State
-  const [newPassword, setNewPassword] = useState('EYB2026#digital')
+  const [newPassword, setNewPassword] = useState('EMAC2026#agency')
   const [passwordNotice, setPasswordNotice] = useState(false)
 
   if (!permissions.canViewUsers) {
@@ -128,7 +128,7 @@ export function UsersPage() {
           <div>
             <h3 className="text-sm font-bold text-white">Default Initial Login Password</h3>
             <p className="text-xs text-indigo-200 mt-0.5">
-              All new and default team accounts are assigned initial password: <code className="bg-black/40 px-2 py-0.5 rounded text-amber-300 font-mono text-xs select-all">EYB2026#digital</code>
+              All new and default team accounts are assigned initial password: <code className="bg-black/40 px-2 py-0.5 rounded text-amber-300 font-mono text-xs select-all">EMAC2026#agency</code>
             </p>
           </div>
         </div>
@@ -314,7 +314,7 @@ export function UsersPage() {
               required
             />
             <p className="text-xs text-[#6B7280]">
-              Standard default password: <code className="font-mono bg-gray-100 px-1 py-0.5 rounded">EYB2026#digital</code>
+              Standard default password: <code className="font-mono bg-gray-100 px-1 py-0.5 rounded">EMAC2026#agency</code>
             </p>
             <div className="flex justify-end gap-2 pt-2 border-t border-[#E5E7EB]">
               <Button type="button" variant="outline" onClick={() => setResetPasswordUser(null)}>

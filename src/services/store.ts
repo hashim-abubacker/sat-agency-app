@@ -185,7 +185,7 @@ class Store {
       reminders: INITIAL_REMINDERS,
       activityLogs: INITIAL_ACTIVITY_LOGS,
       settings: {
-        agency_name: 'EMAC Agency',
+        agency_name: 'EMAC ONE',
         default_currency: 'INR',
         drive_root_url: 'https://drive.google.com/drive/folders/emac-agency-root',
       },

@@ -11,9 +11,9 @@ export function SettingsPage() {
   const { state, store } = useAgencyStore()
   const syncInfo = store.getCloudSyncStatus()
 
-  const [agencyName, setAgencyName] = useState(state.settings?.agency_name || 'Elevate Your Brand (EYB) Agency')
+  const [agencyName, setAgencyName] = useState(state.settings?.agency_name || 'EMAC ONE')
   const [defaultCurrency, setDefaultCurrency] = useState(state.settings?.default_currency || 'INR')
-  const [driveRootUrl, setDriveRootUrl] = useState(state.settings?.drive_root_url || 'https://drive.google.com/drive/folders/sample-root')
+  const [driveRootUrl, setDriveRootUrl] = useState(state.settings?.drive_root_url || 'https://drive.google.com/drive/folders/emac-agency-root')
   const [savedSuccess, setSavedSuccess] = useState(false)
   const [copiedSql, setCopiedSql] = useState(false)
 
@@ -368,7 +368,7 @@ END $$;`
           <Input
             label="Current Password"
             type="password"
-            placeholder="Default initial: EYB2026#digital"
+            placeholder="Default initial: EMAC2026#agency"
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
             required

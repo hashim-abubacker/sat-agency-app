@@ -9,7 +9,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- 1. AGENCY SETTINGS TABLE
 CREATE TABLE IF NOT EXISTS agency_settings (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  agency_name TEXT NOT NULL DEFAULT 'EMAC Agency',
+  agency_name TEXT NOT NULL DEFAULT 'EMAC ONE',
   default_currency VARCHAR(10) NOT NULL DEFAULT 'INR',
   drive_root_url TEXT,
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS agency_settings (
 
 -- Insert Default Agency Settings if missing
 INSERT INTO agency_settings (agency_name, default_currency, drive_root_url)
-SELECT 'EMAC Agency', 'INR', 'https://drive.google.com/drive/folders/emac-agency-root'
+SELECT 'EMAC ONE', 'INR', 'https://drive.google.com/drive/folders/emac-agency-root'
 WHERE NOT EXISTS (SELECT 1 FROM agency_settings);
 
 -- 2. USERS TABLE
